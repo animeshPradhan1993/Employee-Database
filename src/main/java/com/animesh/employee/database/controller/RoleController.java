@@ -36,7 +36,7 @@ public class RoleController {
     @Transactional
     @DeleteMapping("{role}")
     public void deleteRole(@PathVariable String role) {
-        if(role.equals("1")){
+        if (role.equals("1")) {
             throw new BadRequestException("This Role can not be deleted");
         }
         service.deleteRole(role);
