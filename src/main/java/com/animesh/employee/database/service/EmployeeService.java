@@ -32,8 +32,7 @@ public class EmployeeService {
         employeeEntity.setId("Employee_" + System.currentTimeMillis());
         try {
             RoleEntity roleEntity = roleService.findRoleById(employeeEntity.getRole().getId());
-        }
-        catch (EntityNotFoundException ex){
+        } catch (EntityNotFoundException ex) {
             throw new BadRequestException(ex.getMessage());
         }
         var password = employeeEntity.getPassword();

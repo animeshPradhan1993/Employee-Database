@@ -16,7 +16,6 @@ public interface EmployeeResourceToEntityMapper {
     @Mapping(source = "name", target = "firstName", qualifiedByName = "mapFirstName")
     @Mapping(source = "name", target = "surname", qualifiedByName = "mapSurname")
     @Mapping(source = "password", target = "password")
-
     EmployeeEntity map(Employee resource);
 
     @Named("mapRole")

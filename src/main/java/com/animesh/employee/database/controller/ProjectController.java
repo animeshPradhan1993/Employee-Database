@@ -40,8 +40,8 @@ public class ProjectController {
     public ResponseEntity<String> assignProjectToEmployee(@PathVariable String employeeId, @PathVariable String projectId) {
         try {
             employeeService.assignEmployeeToAProject(employeeId, projectId);
-        }catch (EntityNotFoundException e){
-            throw  new BadRequestException(e.getMessage());
+        } catch (EntityNotFoundException e) {
+            throw new BadRequestException(e.getMessage());
         }
         return new ResponseEntity<>("Project assigned to employee successfully", HttpStatus.OK);
     }

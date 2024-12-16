@@ -33,6 +33,6 @@ public class EmployeeEntity {
     @JoinTable(name = "EMPLOYEE_PROJECT",
             joinColumns = @JoinColumn(name = "EMPLOYEE_ID"),
             inverseJoinColumns = @JoinColumn(name = "PROJECT_ID")
-            )
+    )
     private Set<ProjectEntity> projects = new HashSet<>();
 }

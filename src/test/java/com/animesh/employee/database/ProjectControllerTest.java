@@ -31,18 +31,20 @@ public class ProjectControllerTest {
         employee.setRoleId("1");
         employee.setName("Test User");
         Employee createdEmployee = employeeController.createNewEmployee(employee).getBody();
-        projectController.assignProjectToEmployee(createdEmployee.getId(),createdproject.getId());
-        Employee retrievedEmployee= employeeController.findEmployeeById(createdEmployee.getId());
-        assert !CollectionUtils.isEmpty(retrievedEmployee.getProjectIds() );
+        projectController.assignProjectToEmployee(createdEmployee.getId(), createdproject.getId());
+        Employee retrievedEmployee = employeeController.findEmployeeById(createdEmployee.getId());
+        assert !CollectionUtils.isEmpty(retrievedEmployee.getProjectIds());
         assertTrue(retrievedEmployee.getProjectIds().contains(createdproject.getId()));
     }
+
     @Test
     public void createProjectAndAssignInvalidEmployeesToTheProject() {
         Project project = new Project();
         project.setName("Test Project");
         Project createdproject = projectController.createProject(project);
-        assertThrowsExactly(BadRequestException.class, () ->  projectController.assignProjectToEmployee("2",createdproject.getId()));
+        assertThrowsExactly(BadRequestException.class, () -> projectController.assignProjectToEmployee("2", createdproject.getId()));
     }
+
     @Test
     public void createEmployeeAndAssignInvalidProject() {
 
@@ -50,7 +52,7 @@ public class ProjectControllerTest {
         employee.setRoleId("1");
         employee.setName("Test User");
         Employee createdEmployee = employeeController.createNewEmployee(employee).getBody();
-        assertThrowsExactly(BadRequestException.class, () ->  projectController.assignProjectToEmployee(createdEmployee.getId(),"223"));
+        assertThrowsExactly(BadRequestException.class, () -> projectController.assignProjectToEmployee(createdEmployee.getId(), "223"));
     }
 
 }

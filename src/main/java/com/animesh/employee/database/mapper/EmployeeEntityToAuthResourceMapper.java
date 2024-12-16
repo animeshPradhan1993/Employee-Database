@@ -1,10 +1,10 @@
 package com.animesh.employee.database.mapper;
 
 import com.animesh.employee.database.entity.EmployeeEntity;
+import com.animesh.employee.database.model.Employee;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-import com.animesh.employee.database.model.Employee;
 
 @Mapper
 public interface EmployeeEntityToAuthResourceMapper {
@@ -15,7 +15,6 @@ public interface EmployeeEntityToAuthResourceMapper {
     @Mapping(source = "entity.role.id", target = "roleId")
     @Mapping(expression = "java(entity.getFirstName() + \" \" + entity.getSurname())", target = "name")
     @Mapping(source = "entity.password", target = "password")
-
     Employee map(EmployeeEntity entity);
 
 }

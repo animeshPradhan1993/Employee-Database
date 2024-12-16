@@ -9,7 +9,6 @@ import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 import org.springframework.util.CollectionUtils;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 

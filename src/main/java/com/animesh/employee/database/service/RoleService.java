@@ -5,9 +5,7 @@ import com.animesh.employee.database.exception.EntityNotFoundException;
 import com.animesh.employee.database.repository.RoleRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import static com.animesh.employee.database.constants.StringConstants.ENTITY_NOT_FOUND;
 

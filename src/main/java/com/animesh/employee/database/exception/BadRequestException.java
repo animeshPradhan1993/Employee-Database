@@ -1,6 +1,5 @@
 package com.animesh.employee.database.exception;
 
-import lombok.Data;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 

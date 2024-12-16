@@ -3,6 +3,7 @@ package com.animesh.employee.database.controller;
 import com.animesh.employee.database.exception.ErrorDetails;
 import com.animesh.employee.database.mapper.RoleEntityToResourceMapper;
 import com.animesh.employee.database.mapper.RoleResourceToEntityMapper;
+import com.animesh.employee.database.model.Role;
 import com.animesh.employee.database.service.RoleService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -12,7 +13,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import com.animesh.employee.database.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -52,6 +52,6 @@ public class RoleController {
                     @Schema(implementation = ErrorDetails.class))})})
     @PostMapping()
     public Role createRole(@Valid @RequestBody Role role) {
-       return RoleEntityToResourceMapper.INSTANCE.map(service.createRole(RoleResourceToEntityMapper.INSTANCE.map(role)));
+        return RoleEntityToResourceMapper.INSTANCE.map(service.createRole(RoleResourceToEntityMapper.INSTANCE.map(role)));
     }
 }
