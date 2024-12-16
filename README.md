@@ -11,7 +11,7 @@ in application.yaml
 none of the endpoints in this application are secured
 
 Employee with admin role is already created with Id 1
-Application uses a H2 database the console can be accessed at host:port/h2-console/  no authentication required
+Application uses a H2 database, console can be accessed at host:port/h2-console/  no authentication required
 
 To start following roles are created
 Role ID, Role name
