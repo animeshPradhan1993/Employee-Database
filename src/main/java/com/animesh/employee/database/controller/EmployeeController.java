@@ -105,7 +105,7 @@ public class EmployeeController {
                     @Schema(implementation = ErrorDetails.class))})})
     @DeleteMapping("/{employeeId}")
     public ResponseEntity<String> deleteEmployee(@PathVariable String employeeId) {
-        if(employeeId.equals("1")){
+        if (employeeId.equals("1")) {
             throw new BadRequestException("This Employee can not be deleted");
         }
         return new ResponseEntity<>(service.deleteEmployee(employeeId), HttpStatus.OK);
