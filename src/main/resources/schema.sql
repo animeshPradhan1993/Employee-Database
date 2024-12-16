@@ -1,0 +1,26 @@
+
+CREATE TABLE ROLE (
+    ID  varchar(255),
+    NAME  varchar(255),
+    PRIMARY KEY (ID)
+);
+CREATE TABLE PROJECT (
+    ID  varchar(255),
+    NAME  varchar(255),
+    PRIMARY KEY (ID)
+);
+CREATE TABLE EMPLOYEE (
+    ID  varchar(255),
+    FIRST_NAME  varchar(255),
+    SURNAME  varchar(255),
+    ROLE varchar(255),
+    PASSWORD varchar(255),
+    PRIMARY KEY (ID),
+    FOREIGN KEY (ROLE) REFERENCES ROLE(ID)
+);
+CREATE TABLE EMPLOYEE_PROJECT (
+    EMPLOYEE_ID varchar(255),
+    PROJECT_ID varchar(255),
+    FOREIGN KEY (EMPLOYEE_ID) REFERENCES EMPLOYEE(ID),
+    FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID)
+);
