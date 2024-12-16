@@ -23,3 +23,6 @@ The swagger can be found at src/main/resources/swagger/Employee-Database.yaml
 
 Jacoco is used to generate the coverage reports.
 Coverage reports(index.html) can be accessed in the site folder inside the generated folder
+on deletion of a role all the projects will be assigned to Employee 1
+
+Please donot delete the employee 1 and role 1 as employee 1 is the the default employee to whom the projects are assigned.

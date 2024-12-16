@@ -55,10 +55,14 @@ public class EmployeeService {
     public EmployeeEntity updateEmployee(String employeeId, EmployeeEntity employeeEntity) {
         EmployeeEntity emp = findEmployeeById(employeeId);
         RoleEntity roleEntity = roleService.findRoleById(employeeEntity.getRole().getId());
-        employeeEntity.setRole(roleEntity);
-        employeeEntity.setId(emp.getId());
-        employeeEntity.setPassword(emp.getPassword());
-        return employeeRepository.save(employeeEntity);
+        emp.setRole(roleEntity);
+       if (!org.apache.commons.lang3.StringUtils.isEmpty(employeeEntity.getFirstName())){
+            emp.setFirstName(employeeEntity.getFirstName());
+        }
+        if (!org.apache.commons.lang3.StringUtils.isEmpty(employeeEntity.getSurname())){
+            emp.setSurname(employeeEntity.getSurname());
+        }
+        return employeeRepository.save(emp);
     }
 
     public void assignEmployeeToAProject(String employeeId, String projectId) {

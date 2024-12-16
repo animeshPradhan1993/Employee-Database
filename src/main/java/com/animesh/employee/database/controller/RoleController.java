@@ -1,5 +1,6 @@
 package com.animesh.employee.database.controller;
 
+import com.animesh.employee.database.exception.BadRequestException;
 import com.animesh.employee.database.exception.ErrorDetails;
 import com.animesh.employee.database.mapper.RoleEntityToResourceMapper;
 import com.animesh.employee.database.mapper.RoleResourceToEntityMapper;
@@ -35,6 +36,9 @@ public class RoleController {
     @Transactional
     @DeleteMapping("{role}")
     public void deleteRole(@PathVariable String role) {
+        if(role.equals("1")){
+            throw new BadRequestException("This Role can not be deleted");
+        }
         service.deleteRole(role);
     }
 

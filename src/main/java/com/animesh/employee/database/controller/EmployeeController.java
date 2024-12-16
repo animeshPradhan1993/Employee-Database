@@ -1,5 +1,6 @@
 package com.animesh.employee.database.controller;
 
+import com.animesh.employee.database.exception.BadRequestException;
 import com.animesh.employee.database.exception.ErrorDetails;
 import com.animesh.employee.database.mapper.EmployeeEntityToAuthResourceMapper;
 import com.animesh.employee.database.mapper.EmployeeEntityToResourceMapper;
@@ -104,6 +105,9 @@ public class EmployeeController {
                     @Schema(implementation = ErrorDetails.class))})})
     @DeleteMapping("/{employeeId}")
     public ResponseEntity<String> deleteEmployee(@PathVariable String employeeId) {
+        if(employeeId.equals("1")){
+            throw new BadRequestException("This Employee can not be deleted");
+        }
         return new ResponseEntity<>(service.deleteEmployee(employeeId), HttpStatus.OK);
 
     }
